@@ -5,7 +5,7 @@ from typing import Dict, Any
 
 class GeminiAgent:
     def __init__(self, api_key: str):
-        if not api_key or api_key == "AIzaSyBJPyoshFpql_B242f_FDxIqnrRT_qfgmQ":
+        if not api_key or api_key == "AIzaSyAPFo7GNYEQKh8_pml_q4UryLG8dAnribM":
             logger.warning("Gemini API Key is missing or invalid. Agent will not function.")
             self.model = None
         else:
