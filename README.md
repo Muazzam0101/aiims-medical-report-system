@@ -194,3 +194,6 @@ Always consult a qualified healthcare provider.
 Frontend is deployed on Vercel:
 
 🔗 https://aiims-medical-report-system-one.vercel.app/
+
+📊 PPT Link:
+https://drive.google.com/drive/folders/1V72_NsAXSpS0TDq6v6JUcqaqDZV-f4l1?usp=drive_link
