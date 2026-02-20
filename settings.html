@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Settings - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3b1e8a",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#161220",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .sidebar-item-active {
+            background-color: rgba(59, 30, 138, 0.1);
+            color: #3b1e8a;
+            border-right: 3px solid #3b1e8a;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+    <div class="flex min-h-screen">
+        <!-- Sidebar Navigation -->
+        <aside
+            class="w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col fixed h-full">
+            <div class="p-6 flex items-center gap-3">
+                <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
+                    <span class="material-symbols-outlined text-xl">settings_suggest</span>
+                </div>
+                <span class="font-bold text-xl tracking-tight">CoreAdmin</span>
+            </div>
+            <nav class="flex-1 mt-4 px-3 space-y-1">
+                <a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                    href="dashboard.html">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <span class="text-sm font-medium">Dashboard</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                    href="report-detailed.html">
+                    <span class="material-symbols-outlined">description</span>
+                    <span class="text-sm font-medium">Reports</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                    href="report-history.html">
+                    <span class="material-symbols-outlined">history</span>
+                    <span class="text-sm font-medium">History</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                    href="help.html">
+                    <span class="material-symbols-outlined">help</span>
+                    <span class="text-sm font-medium">Help</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 sidebar-item-active rounded-lg transition-colors"
+                    href="settings.html">
+                    <span class="material-symbols-outlined">settings</span>
+                    <span class="text-sm font-medium">Settings</span>
+                </a>
+            </nav>
+            <div class="p-4 border-t border-slate-200 dark:border-slate-800">
+                <div class="flex items-center gap-3 p-2 mb-4">
+                    <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center overflow-hidden">
+                        <img alt="User" data-alt="Professional user profile headshot avatar"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq_9y9kvyVxU2YzEkYCr7blIAh1zoklxY0qQzqfuOCvYJ8uxXrifZ3--4tphaU5rk2xxd99NMFHfbTusbZp9xcOTLv8CV8T-SM1IgQVl0fsYCBkjTgkxhyfy5ewo1j6JeLKtTEdEuTiI47-2X0OGJLcDJh0E-SX04vRy3Dze7J1Q0E2REJaaMdP2e7dCdwY1wfz4bbgfjLpke8J1I7MNHWCUrE_PUhSWyxMENVAzmlNq5hPnxw_9qdrg5UgnJrzlwxubjZ9CTR0e2e" />
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-sm font-semibold">Alex Johnson</span>
+                        <span class="text-xs text-slate-500">Administrator</span>
+                    </div>
+                </div>
+                <a href="index.html"
+                    class="w-full flex items-center justify-center gap-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 py-2 rounded-lg text-sm font-bold transition-all">
+                    <span class="material-symbols-outlined text-sm">logout</span>
+                    Logout
+                </a>
+            </div>
+        </aside>
+        <!-- Main Content Area -->
+        <main class="flex-1 ml-64 p-8">
+            <div class="max-w-4xl mx-auto">
+                <header class="mb-8">
+                    <h1 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Settings</h1>
+                    <p class="text-slate-500 dark:text-slate-400 mt-1">Manage your account preferences and regional
+                        configurations.</p>
+                </header>
+                <div class="space-y-8">
+                    <!-- Profile Settings Section -->
+                    <section
+                        class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+                        <div class="p-6 border-b border-slate-100 dark:border-slate-800">
+                            <h2 class="text-lg font-bold flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">person</span>
+                                Profile Settings
+                            </h2>
+                        </div>
+                        <div class="p-6 space-y-6">
+                            <div class="flex items-center gap-6">
+                                <div class="relative group">
+                                    <div
+                                        class="w-24 h-24 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center overflow-hidden border-4 border-white dark:border-slate-700 shadow-sm">
+                                        <img alt="Profile" data-alt="Default professional user profile circular image"
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC19QsmiMHGNb8D2VjRXldWQ63D9fCcTJW1brAl2ZB9EIv82lGuywwJoPVjxeQlKw4OoZiUYGxMPp6Tafw9qZrr_Ty42rDomF2MMu6hLPWWXQIyWG2Oqu7y303JFX46JAG5i2vOCd21gU9KGuOlYkg_j69IdU4xCrwcZ5ur6PMgqhI7xz56GO4Qy6nqo4REWg17XsfFUFV1xVm4JMVVZbtn7rZShPXmFnJEs6f0WOZ_ef8XJMoa3M70hpp3bXPFMMjwQF6Hg1nGA4ee" />
+                                    </div>
+                                    <button
+                                        class="absolute bottom-0 right-0 bg-primary text-white p-1.5 rounded-full shadow-lg border-2 border-white dark:border-slate-900">
+                                        <span class="material-symbols-outlined text-sm">edit</span>
+                                    </button>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium">Profile Picture</h3>
+                                    <p class="text-xs text-slate-500 mt-1">JPG, GIF or PNG. Max size of 800K</p>
+                                    <div class="mt-3 flex gap-2">
+                                        <button
+                                            class="text-xs font-bold py-1.5 px-3 rounded-lg bg-primary text-white">Upload
+                                            New</button>
+                                        <button
+                                            class="text-xs font-bold py-1.5 px-3 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="space-y-2">
+                                    <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Full
+                                        Name</label>
+                                    <input
+                                        class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary focus:border-primary text-sm p-3"
+                                        type="text" value="Alex Johnson" />
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Email
+                                        Address</label>
+                                    <input
+                                        class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary focus:border-primary text-sm p-3"
+                                        type="email" value="alex.j@example.com" />
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Job
+                                        Title</label>
+                                    <input
+                                        class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary focus:border-primary text-sm p-3"
+                                        type="text" value="Senior Product Designer" />
+                                </div>
+                                <div class="space-y-2">
+                                    <label
+                                        class="text-sm font-semibold text-slate-700 dark:text-slate-300">Timezone</label>
+                                    <select
+                                        class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary focus:border-primary text-sm p-3">
+                                        <option>GMT (UTC +0:00)</option>
+                                        <option>IST (UTC +5:30)</option>
+                                        <option>PST (UTC -8:00)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Language & Localization -->
+                    <section
+                        class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+                        <div class="p-6 border-b border-slate-100 dark:border-slate-800">
+                            <h2 class="text-lg font-bold flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">translate</span>
+                                Language &amp; Localization
+                            </h2>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium text-slate-900 dark:text-white">Preferred Language</h3>
+                                    <p class="text-sm text-slate-500">Choose your interface language (English / Hindi)
+                                    </p>
+                                </div>
+                                <div class="flex p-1 bg-slate-100 dark:bg-slate-800 rounded-xl">
+                                    <button
+                                        class="px-6 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-bold text-primary">English</button>
+                                    <button
+                                        class="px-6 py-2 rounded-lg text-sm font-bold text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition-colors">Hindi
+                                        (हिंदी)</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Notification Preferences -->
+                    <section
+                        class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+                        <div class="p-6 border-b border-slate-100 dark:border-slate-800">
+                            <h2 class="text-lg font-bold flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">notifications</span>
+                                Notification Preferences
+                            </h2>
+                        </div>
+                        <div class="divide-y divide-slate-100 dark:divide-slate-800">
+                            <div class="p-6 flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium">Email Notifications</h3>
+                                    <p class="text-sm text-slate-500">Receive summary of activity once a day</p>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input checked="" class="sr-only peer" type="checkbox" />
+                                    <div
+                                        class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary">
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="p-6 flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium">Desktop Alerts</h3>
+                                    <p class="text-sm text-slate-500">Instant browser notifications for new messages</p>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input class="sr-only peer" type="checkbox" />
+                                    <div
+                                        class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary">
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="p-6 flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium">Marketing Updates</h3>
+                                    <p class="text-sm text-slate-500">Periodic emails about new features and offers</p>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input checked="" class="sr-only peer" type="checkbox" />
+                                    <div
+                                        class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary">
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Data Privacy Information -->
+                    <section
+                        class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+                        <div class="p-6 border-b border-slate-100 dark:border-slate-800">
+                            <h2 class="text-lg font-bold flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">shield</span>
+                                Data Privacy Information
+                            </h2>
+                        </div>
+                        <div class="p-6">
+                            <div class="bg-primary/5 dark:bg-primary/10 p-4 rounded-lg mb-6 border border-primary/20">
+                                <p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                                    Your data privacy is our priority. We collect only necessary information to provide
+                                    a seamless dashboard experience. We never share your personal information with third
+                                    parties without explicit consent.
+                                </p>
+                            </div>
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                                <div>
+                                    <p class="text-sm font-semibold">Request your personal data archive</p>
+                                    <p class="text-xs text-slate-500 mt-1">We will send a ZIP file of your profile data
+                                        to your email.</p>
+                                </div>
+                                <button
+                                    class="flex items-center gap-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-2 rounded-lg text-sm font-bold shadow-md hover:bg-slate-800 transition-colors">
+                                    <span class="material-symbols-outlined text-sm">download</span>
+                                    Download My Data
+                                </button>
+                            </div>
+                            <div
+                                class="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
+                                <a class="text-sm font-medium text-primary hover:underline" href="#">Read Full Privacy
+                                    Policy</a>
+                                <span class="text-xs text-slate-400 italic">Last updated: Oct 24, 2023</span>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Page Actions -->
+                    <div class="flex items-center justify-end gap-3 pt-4 pb-12">
+                        <button
+                            class="px-6 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 text-sm font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">Cancel</button>
+                        <button
+                            class="px-10 py-2.5 rounded-lg bg-primary text-white text-sm font-bold shadow-lg shadow-primary/30 hover:bg-primary/90 transition-all">Save
+                            Changes</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

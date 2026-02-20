@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>AIIMS Portal - Login</title>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols Outlined -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3b1e8a",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#161220",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col font-display transition-colors duration-300">
+    <!-- Top Navigation Bar -->
+    <header
+        class="w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 lg:px-10 py-4 flex items-center justify-between sticky top-0 z-50">
+        <a href="index.html" class="flex items-center gap-3 group">
+            <div class="text-primary group-hover:scale-110 transition-transform">
+                <svg class="w-8 h-8" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd"
+                        d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z"
+                        fill="currentColor" fill-rule="evenodd"></path>
+                    <path clip-rule="evenodd"
+                        d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z"
+                        fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+            </div>
+            <h1 class="text-slate-900 dark:text-slate-100 text-xl font-bold tracking-tight">AIIMS Portal</h1>
+        </a>
+        <div class="flex items-center gap-4">
+            <a href="help.html"
+                class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium">
+                Need Help?
+            </a>
+            <div class="h-4 w-[1px] bg-slate-200 dark:bg-slate-700"></div>
+            <span
+                class="material-symbols-outlined text-slate-500 dark:text-slate-400 cursor-pointer hover:text-primary">language</span>
+        </div>
+    </header>
+    <!-- Main Content Area: Centered Login Card -->
+    <main class="flex-1 flex flex-col items-center justify-center p-6 lg:p-12">
+        <div class="w-full max-w-md">
+            <!-- Login Card -->
+            <div
+                class="bg-white dark:bg-slate-900 rounded-xl shadow-xl shadow-primary/5 border border-slate-200 dark:border-slate-800 overflow-hidden">
+                <!-- Security Header Image -->
+                <div
+                    class="h-32 bg-primary/10 dark:bg-primary/20 flex items-center justify-center overflow-hidden relative">
+                    <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent"></div>
+                    <div class="relative flex flex-col items-center gap-2">
+                        <div class="bg-white dark:bg-slate-800 p-3 rounded-full shadow-lg">
+                            <span class="material-symbols-outlined text-primary text-3xl">lock_open</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8 lg:p-10">
+                    <div class="text-center mb-8">
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100">Sign In</h2>
+                        <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm">Access your patient records &amp;
+                            medical services</p>
+                    </div>
+                    <form class="space-y-6">
+                        <!-- Email / Patient ID Field -->
+                        <div class="space-y-2">
+                            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300"
+                                for="identifier">
+                                Email or Patient ID
+                            </label>
+                            <div class="relative">
+                                <span
+                                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">person</span>
+                                <input
+                                    class="w-full pl-10 pr-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-slate-900 dark:text-slate-100 placeholder:text-slate-400"
+                                    id="identifier" name="identifier" placeholder="e.g. P-12345678" required=""
+                                    type="text" />
+                            </div>
+                        </div>
+                        <!-- Password Field -->
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between">
+                                <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300"
+                                    for="password">
+                                    Password
+                                </label>
+                                <a class="text-xs font-medium text-primary hover:underline" href="#">Forgot
+                                    password?</a>
+                            </div>
+                            <div class="relative">
+                                <span
+                                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">key</span>
+                                <input
+                                    class="w-full pl-10 pr-12 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-slate-900 dark:text-slate-100 placeholder:text-slate-400"
+                                    id="password" name="password" placeholder="••••••••" required="" type="password" />
+                                <button
+                                    class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+                                    type="button">
+                                    <span class="material-symbols-outlined text-xl">visibility</span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Login Button -->
+                        <a href="dashboard.html"
+                            class="w-full py-4 bg-primary hover:bg-primary/90 text-white font-bold rounded-lg shadow-lg shadow-primary/20 transition-all transform active:scale-[0.98] flex items-center justify-center gap-2">
+                            <span class="material-symbols-outlined text-lg">login</span>
+                            Secure Login
+                        </a>
+                    </form>
+                    <!-- Divider -->
+                    <div class="relative my-8">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-slate-200 dark:border-slate-800"></div>
+                        </div>
+                        <div class="relative flex justify-center text-xs uppercase">
+                            <span class="bg-white dark:bg-slate-900 px-2 text-slate-400">New to AIIMS?</span>
+                        </div>
+                    </div>
+                    <!-- Register Link -->
+                    <div class="text-center">
+                        <p class="text-sm text-slate-600 dark:text-slate-400">
+                            Don't have an account?
+                            <a class="text-primary font-bold hover:underline ml-1" href="#">Register here</a>
+                        </p>
+                    </div>
+                </div>
+                <!-- Trust Footer -->
+                <div
+                    class="px-8 py-4 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800 flex items-center justify-center gap-2">
+                    <span class="material-symbols-outlined text-green-500 text-sm">verified_user</span>
+                    <span
+                        class="text-[10px] lg:text-xs font-medium text-slate-500 dark:text-slate-400 tracking-wider uppercase">End-to-end
+                        Encrypted Session</span>
+                </div>
+            </div>
+            <!-- Additional Help/Links -->
+            <div class="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2">
+                <a class="text-xs text-slate-500 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+                <a class="text-xs text-slate-500 hover:text-primary transition-colors" href="#">Terms of Service</a>
+                <a class="text-xs text-slate-500 hover:text-primary transition-colors" href="#">Accessibility
+                    Support</a>
+            </div>
+        </div>
+    </main>
+    <!-- Simple Footer -->
+    <footer class="w-full py-6 px-10 border-t border-slate-200 dark:border-slate-800 text-center">
+        <p class="text-xs text-slate-400 dark:text-slate-500">
+            © 2024 All India Institute of Medical Sciences. All Rights Reserved.
+        </p>
+    </footer>
+</body>
+
+</html>

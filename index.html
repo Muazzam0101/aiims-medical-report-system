@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AIIMS Report Simplifier | Understand Your Health</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3b1e8a",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#161220",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex h-16 items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center bg-primary rounded-lg p-1.5 text-white">
+<span class="material-symbols-outlined text-2xl">medical_services</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-primary">AIIMS <span class="text-slate-700 dark:text-slate-300">Simplifier</span></span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="index.html">Home</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">About</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">How It Works</a>
+<a href="login.html" class="bg-primary flex items-center justify-center text-white px-5 py-2 rounded-lg text-sm font-bold hover:opacity-90 transition-opacity">
+                        Login
+                    </a>
+</nav>
+<div class="md:hidden">
+<span class="material-symbols-outlined cursor-pointer">menu</span>
+</div>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative overflow-hidden pt-16 pb-20 lg:pt-24 lg:pb-32">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<div class="flex flex-col gap-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm">verified</span>
+                            Powered by AIIMS Clinical Intelligence
+                        </div>
+<h1 class="text-4xl md:text-6xl font-black leading-tight tracking-tight text-slate-900 dark:text-white">
+                            Understand Your Medical Reports in <span class="text-primary">Simple Language</span>
+</h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed">
+                            Leveraging AIIMS-trained AI models to translate complex clinical findings into clear, actionable insights for patients. No more confusing medical jargon.
+                        </p>
+<div class="flex flex-wrap gap-4">
+<a href="login.html" class="bg-primary text-white px-8 py-4 rounded-xl text-lg font-bold shadow-lg shadow-primary/25 hover:translate-y-[-2px] transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">upload_file</span>
+                                Upload Report
+                            </a>
+<button class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-8 py-4 rounded-xl text-lg font-bold hover:bg-slate-50 dark:hover:bg-slate-700 transition-all">
+                                Learn More
+                            </button>
+</div>
+<div class="flex items-center gap-4 text-sm text-slate-500">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white bg-slate-200" data-alt="Avatar of user 1"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-slate-300" data-alt="Avatar of user 2"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-slate-400" data-alt="Avatar of user 3"></div>
+</div>
+<span>Joined by 10,000+ patients across India</span>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-video w-full rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/10 p-4 shadow-2xl relative z-10 overflow-hidden" data-alt="AI Medical Report Dashboard Interface Mockup">
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-8xl text-primary/30">analytics</span>
+</div>
+<div class="relative h-full w-full rounded-xl bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm border border-white/40 dark:border-white/10 p-6 flex flex-col gap-4">
+<div class="h-4 w-1/3 bg-primary/20 rounded-full"></div>
+<div class="h-32 w-full bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center">
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-primary text-4xl">description</span>
+<span class="text-xs font-medium text-slate-400 uppercase">Processing CBC_Report.pdf</span>
+</div>
+</div>
+<div class="space-y-3">
+<div class="h-3 w-full bg-slate-100 dark:bg-slate-800 rounded-full"></div>
+<div class="h-3 w-5/6 bg-slate-100 dark:bg-slate-800 rounded-full"></div>
+<div class="h-3 w-4/6 bg-slate-100 dark:bg-slate-800 rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Background decoration -->
+<div class="absolute -top-12 -right-12 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-12 -left-12 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works Section -->
+<section class="py-20 bg-white dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16 flex flex-col items-center">
+<h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">How It Works</h2>
+<div class="mt-4 h-1.5 w-20 bg-primary rounded-full"></div>
+<p class="mt-4 text-lg text-slate-600 dark:text-slate-400 max-w-2xl">
+                        A simple three-step process to transform your medical data into meaningful information.
+                    </p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Step 1 -->
+<div class="relative group">
+<div class="p-8 rounded-2xl bg-background-light dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 transition-all hover:border-primary/50 text-center flex flex-col items-center gap-6">
+<div class="w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-3xl">cloud_upload</span>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-2">1. Upload</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">Securely upload your clinical reports in PDF or high-quality image formats.</p>
+</div>
+</div>
+<div class="hidden md:block absolute top-1/2 -right-4 translate-y-[-50%] z-20">
+<span class="material-symbols-outlined text-slate-300">chevron_right</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative group">
+<div class="p-8 rounded-2xl bg-background-light dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 transition-all hover:border-primary/50 text-center flex flex-col items-center gap-6">
+<div class="w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-3xl">psychology</span>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-2">2. Process</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">Our clinical AI engine analyzes the data using millions of verified data points.</p>
+</div>
+</div>
+<div class="hidden md:block absolute top-1/2 -right-4 translate-y-[-50%] z-20">
+<span class="material-symbols-outlined text-slate-300">chevron_right</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="group">
+<div class="p-8 rounded-2xl bg-background-light dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 transition-all hover:border-primary/50 text-center flex flex-col items-center gap-6">
+<div class="w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-3xl">visibility</span>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-2">3. Understand</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">Receive a clear, multi-lingual summary explaining what the results mean for you.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Features Grid -->
+<section class="py-20 bg-background-light dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+<div class="max-w-xl">
+<h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">Key Features</h2>
+<p class="mt-4 text-lg text-slate-600 dark:text-slate-400">
+                            Engineered for accuracy, absolute privacy, and seamless patient communication.
+                        </p>
+</div>
+<button class="text-primary font-bold flex items-center gap-1 hover:underline">
+                        Explore all features
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="text-primary mb-4">
+<span class="material-symbols-outlined text-3xl">verified_user</span>
+</div>
+<h4 class="font-bold text-lg mb-2">AI Accuracy</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Models specifically fine-tuned on AIIMS clinical datasets for regional accuracy.</p>
+</div>
+<div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="text-primary mb-4">
+<span class="material-symbols-outlined text-3xl">lock</span>
+</div>
+<h4 class="font-bold text-lg mb-2">Data Privacy</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">HIPAA-ready encryption ensures your medical data never leaves our secure cloud.</p>
+</div>
+<div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="text-primary mb-4">
+<span class="material-symbols-outlined text-3xl">translate</span>
+</div>
+<h4 class="font-bold text-lg mb-2">Jargon Translation</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Complex clinical terminology converted into conversational everyday language.</p>
+</div>
+<div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="text-primary mb-4">
+<span class="material-symbols-outlined text-3xl">public</span>
+</div>
+<h4 class="font-bold text-lg mb-2">Regional Languages</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Support for Hindi, Bengali, Tamil, Telugu, and other major Indian languages.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Responsible AI Section -->
+<section class="py-20">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-primary/5 rounded-3xl p-8 lg:p-16 border border-primary/10 overflow-hidden relative">
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="material-symbols-outlined text-9xl">shield</span>
+</div>
+<div class="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-6">
+<div class="inline-flex items-center gap-2 text-primary font-bold tracking-widest text-xs uppercase">
+                                Responsible AI &amp; Ethics
+                            </div>
+<h2 class="text-3xl font-black text-slate-900 dark:text-white leading-tight">Our Commitment to <br/>Clinical Integrity</h2>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
+                                We believe technology should enhance, not replace, the doctor-patient relationship. Our AI models are built under strict ethical guidelines with clinician oversight at every stage.
+                            </p>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="text-slate-700 dark:text-slate-300 font-medium">Clinician-validated simplified summaries</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="text-slate-700 dark:text-slate-300 font-medium">Zero-retention data policy available</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="text-slate-700 dark:text-slate-300 font-medium">Bias-checked for diverse patient demographics</span>
+</li>
+</ul>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="text-4xl font-black text-primary mb-1">99.2%</div>
+<div class="text-xs font-bold text-slate-400 uppercase">Clarity Rating</div>
+</div>
+<div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="text-4xl font-black text-primary mb-1">5M+</div>
+<div class="text-xs font-bold text-slate-400 uppercase">Reports Processed</div>
+</div>
+<div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="text-4xl font-black text-primary mb-1">15+</div>
+<div class="text-xs font-bold text-slate-400 uppercase">Indian Languages</div>
+</div>
+<div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="text-4xl font-black text-primary mb-1">24/7</div>
+<div class="text-xs font-bold text-slate-400 uppercase">Support Available</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-12 bg-primary">
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<h2 class="text-3xl font-bold text-white mb-6">Take control of your health understanding today</h2>
+<button class="bg-white text-primary px-10 py-4 rounded-xl text-xl font-bold hover:bg-slate-50 transition-colors shadow-xl">
+                    Get Started for Free
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-900 pt-16 pb-8 border-t border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-12">
+<div class="col-span-2">
+<div class="flex items-center gap-3 mb-6">
+<div class="flex items-center justify-center bg-primary rounded-lg p-1.5 text-white">
+<span class="material-symbols-outlined text-2xl">medical_services</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-primary">AIIMS Simplifier</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 max-w-sm mb-6">
+                        An institutional initiative dedicated to democratizing medical information and improving patient outcomes through advanced clinical AI.
+                    </p>
+<div class="flex gap-4">
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">call</span></a>
+</div>
+</div>
+<div>
+<h5 class="font-bold text-sm uppercase tracking-widest text-slate-900 dark:text-white mb-6">Company</h5>
+<ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary" href="#">About Us</a></li>
+<li><a class="hover:text-primary" href="#">Medical Team</a></li>
+<li><a class="hover:text-primary" href="#">AI Research</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-sm uppercase tracking-widest text-slate-900 dark:text-white mb-6">Resources</h5>
+<ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary" href="help.html">Documentation</a></li>
+<li><a class="hover:text-primary" href="help.html#disclaimer">Privacy Policy</a></li>
+<li><a class="hover:text-primary" href="help.html#support">Support</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-sm uppercase tracking-widest text-slate-900 dark:text-white mb-6">Contact</h5>
+<p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                        AIIMS, Ansari Nagar,<br/>
+                        New Delhi - 110029,<br/>
+                        India
+                    </p>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-200 dark:border-slate-800 text-center">
+<p class="text-xs text-slate-400 dark:text-slate-500 max-w-4xl mx-auto italic mb-4">
+                    Disclaimer: This tool provides automated explanations for informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.
+                </p>
+<p class="text-sm text-slate-500 dark:text-slate-400">
+                    © 2024 AIIMS Medical Simplifier System. All rights reserved.
+                </p>
+</div>
+</div>
+</footer>
+</body></html>

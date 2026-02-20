@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Detailed Patient Report | Clinical Portal</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3b1e8a",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#161220",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside
+            class="w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col fixed h-full">
+            <div class="p-6">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="bg-primary rounded-lg p-2 text-white">
+                        <span class="material-symbols-outlined">health_metrics</span>
+                    </div>
+                    <h1 class="font-bold text-xl tracking-tight text-primary">ClinicalView</h1>
+                </div>
+                <nav class="space-y-1">
+                    <a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                        href="dashboard.html">
+                        <span class="material-symbols-outlined text-lg">dashboard</span>
+                        <span class="font-medium text-sm">Dashboard</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                        href="report-history.html">
+                        <span class="material-symbols-outlined text-lg">group</span>
+                        <span class="font-medium text-sm">Patient List</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 bg-primary/10 text-primary rounded-lg"
+                        href="report-detailed.html">
+                        <span class="material-symbols-outlined text-lg font-fill">description</span>
+                        <span class="font-medium text-sm">Detailed Reports</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                        href="settings.html">
+                        <span class="material-symbols-outlined text-lg">settings</span>
+                        <span class="font-medium text-sm">Settings</span>
+                    </a>
+                </nav>
+            </div>
+            <div class="mt-auto p-6 border-t border-slate-200 dark:border-slate-800">
+                <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl mb-4">
+                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Report Info</p>
+                    <p class="text-xs text-slate-600 dark:text-slate-400">ID: #98234-X</p>
+                    <p class="text-xs text-slate-600 dark:text-slate-400">Generated: Oct 24, 2023</p>
+                </div>
+                <a href="index.html"
+                    class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:text-red-600 transition-colors w-full">
+                    <span class="material-symbols-outlined text-lg">logout</span>
+                    <span class="font-medium text-sm">Logout</span>
+                </a>
+            </div>
+        </aside>
+        <!-- Main Content Area -->
+        <main class="flex-1 ml-64 p-8">
+            <!-- Top Patient Summary Header -->
+            <header
+                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 mb-8 flex flex-col @[800px]:flex-row justify-between items-center gap-6 sticky top-8 z-10 shadow-sm">
+                <div class="flex items-center gap-5">
+                    <div class="h-16 w-16 rounded-full bg-slate-200 overflow-hidden ring-4 ring-primary/5">
+                        <img alt="Patient Profile" class="h-full w-full object-cover"
+                            data-alt="Close up portrait of a middle aged man"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq5tChIUvgrIyc-O3IPBuxJ3RWVhrdPo5nSLszM0NSWWFQtEri3C3mYDzelhwWxc1P92OcpRsdQTmWO-eyicSO2NHnOBKKkEfp9vV9BDR43QfE8ZQ9c4yGWeibaiVssribP64NOOPhhUWPiePtTgMc4UriRgxi6djDNyPSwaX_bmz3jez3pZI-5cWAmnq29DrtYkQbnibDNLR-muLspmXg_zcA8E8OfTQ6zPIqMNthToNrdTHFMwoP819w3waBkTV-m3UxPgn2cVVB" />
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Johnathan Doe</h2>
+                            <span
+                                class="px-2 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-[10px] font-bold text-slate-500 uppercase tracking-wider">Patient</span>
+                        </div>
+                        <p class="text-slate-500 text-sm mt-1">MRN: 12345678 • Age: 45 • Sex: Male • DOB: 05/12/1978</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <button
+                        class="flex items-center gap-2 px-5 py-2.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-lg font-semibold text-sm hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                        <span class="material-symbols-outlined text-lg">download</span>
+                        Download PDF
+                    </button>
+                    <button
+                        class="flex items-center gap-2 px-5 py-2.5 bg-primary text-white rounded-lg font-semibold text-sm hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">
+                        <span class="material-symbols-outlined text-lg">print</span>
+                        Print Report
+                    </button>
+                </div>
+            </header>
+            <div class="grid grid-cols-12 gap-8">
+                <!-- Left Column: Risk & Parameters -->
+                <div class="col-span-12 lg:col-span-7 space-y-8">
+                    <!-- Risk Gauge Visualization -->
+                    <div
+                        class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-8">
+                        <h3 class="text-lg font-bold mb-6 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary">analytics</span>
+                            Calculated Risk Score
+                        </h3>
+                        <div class="flex flex-col items-center py-4">
+                            <div class="relative flex items-center justify-center">
+                                <!-- SVG Gauge -->
+                                <svg class="w-64 h-32" viewbox="0 0 100 50">
+                                    <path d="M 10,45 A 35,35 0 0 1 90,45" fill="none" stroke="#e2e8f0"
+                                        stroke-linecap="round" stroke-width="8"></path>
+                                    <path class="text-primary" d="M 10,45 A 35,35 0 0 1 90,45" fill="none"
+                                        stroke="currentColor" stroke-dasharray="100" stroke-dashoffset="18"
+                                        stroke-linecap="round" stroke-width="8"></path>
+                                </svg>
+                                <div class="absolute bottom-0 text-center">
+                                    <span
+                                        class="text-4xl font-black text-slate-900 dark:text-white leading-none">82%</span>
+                                    <p class="text-xs font-bold text-red-500 mt-1 uppercase tracking-widest">High Risk
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="mt-8 grid grid-cols-3 w-full gap-4 text-center">
+                                <div class="p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg">
+                                    <p class="text-[10px] text-slate-500 uppercase font-bold mb-1">Last Score</p>
+                                    <p class="font-bold text-slate-700 dark:text-slate-300">70%</p>
+                                </div>
+                                <div class="p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg">
+                                    <p class="text-[10px] text-slate-500 uppercase font-bold mb-1">Confidence</p>
+                                    <p class="font-bold text-slate-700 dark:text-slate-300">94.2%</p>
+                                </div>
+                                <div class="p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg">
+                                    <p class="text-[10px] text-slate-500 uppercase font-bold mb-1">Status</p>
+                                    <p class="font-bold text-red-500">Critical</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Parameter Table -->
+                    <div
+                        class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm">
+                        <div
+                            class="p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
+                            <h3 class="text-lg font-bold">Clinical Parameters</h3>
+                            <span class="text-xs text-slate-500">4 Abnormalities Detected</span>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left">
+                                <thead
+                                    class="bg-slate-50 dark:bg-slate-800/50 text-[11px] uppercase tracking-wider font-bold text-slate-500">
+                                    <tr>
+                                        <th class="px-6 py-4">Biomarker</th>
+                                        <th class="px-6 py-4">Result</th>
+                                        <th class="px-6 py-4">Reference Range</th>
+                                        <th class="px-6 py-4">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 dark:divide-slate-800 text-sm">
+                                    <tr>
+                                        <td class="px-6 py-4 font-medium text-slate-900 dark:text-slate-200">LDL
+                                            Cholesterol</td>
+                                        <td class="px-6 py-4 font-bold text-red-600">185 mg/dL</td>
+                                        <td class="px-6 py-4 text-slate-500">&lt; 100 mg/dL</td>
+                                        <td class="px-6 py-4">
+                                            <span
+                                                class="px-2 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded text-xs font-bold">High</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 font-medium text-slate-900 dark:text-slate-200">Blood
+                                            Pressure</td>
+                                        <td class="px-6 py-4 font-bold text-red-600">158/94 mmHg</td>
+                                        <td class="px-6 py-4 text-slate-500">&lt; 120/80 mmHg</td>
+                                        <td class="px-6 py-4">
+                                            <span
+                                                class="px-2 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded text-xs font-bold">Stage
+                                                2</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 font-medium text-slate-900 dark:text-slate-200">Glucose
+                                            (Fasting)</td>
+                                        <td class="px-6 py-4 font-bold text-slate-700 dark:text-slate-300">92 mg/dL</td>
+                                        <td class="px-6 py-4 text-slate-500">70-99 mg/dL</td>
+                                        <td class="px-6 py-4">
+                                            <span
+                                                class="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded text-xs font-bold">Normal</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 font-medium text-slate-900 dark:text-slate-200">HbA1c</td>
+                                        <td class="px-6 py-4 font-bold text-amber-600">6.1%</td>
+                                        <td class="px-6 py-4 text-slate-500">&lt; 5.7%</td>
+                                        <td class="px-6 py-4">
+                                            <span
+                                                class="px-2 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 rounded text-xs font-bold">Pre-diabetic</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 font-medium text-slate-900 dark:text-slate-200">BMI</td>
+                                        <td class="px-6 py-4 font-bold text-red-600">31.4 kg/m²</td>
+                                        <td class="px-6 py-4 text-slate-500">18.5-24.9 kg/m²</td>
+                                        <td class="px-6 py-4">
+                                            <span
+                                                class="px-2 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded text-xs font-bold">Obese</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Column: Full Explanation Cards -->
+                <div class="col-span-12 lg:col-span-5 space-y-6">
+                    <h3 class="text-lg font-bold flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">psychology</span>
+                        Clinical Narratives
+                    </h3>
+                    <!-- Narrative Card 1 -->
+                    <div
+                        class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm hover:border-primary/30 transition-colors">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="p-2 bg-red-50 dark:bg-red-900/20 text-red-600 rounded-lg">
+                                <span class="material-symbols-outlined">warning</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white">Cardiovascular Assessment</h4>
+                                <p class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Priority: High
+                                </p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Patient displays a high risk score primarily driven by synergistic interaction between
+                            Hypertension (158/94) and elevated LDL levels. The combined presence of these factors
+                            significantly increases the 10-year risk of major adverse cardiovascular events (MACE).
+                        </p>
+                        <button class="mt-4 text-primary text-xs font-bold hover:underline flex items-center gap-1">
+                            Read Detailed Analysis <span
+                                class="material-symbols-outlined text-[14px]">chevron_right</span>
+                        </button>
+                    </div>
+                    <!-- Narrative Card 2 -->
+                    <div
+                        class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm hover:border-primary/30 transition-colors">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="p-2 bg-amber-50 dark:bg-amber-900/20 text-amber-600 rounded-lg">
+                                <span class="material-symbols-outlined">monitoring</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white">Metabolic &amp; Endocrine</h4>
+                                <p class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Priority:
+                                    Medium</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Fasting glucose is within range, however HbA1c (6.1%) indicates a sustained glycemic load
+                            consistent with pre-diabetes. Coupled with a BMI of 31.4, weight management and
+                            carb-restricted dietary intervention are highly recommended to prevent progression to Type 2
+                            Diabetes.
+                        </p>
+                        <button class="mt-4 text-primary text-xs font-bold hover:underline flex items-center gap-1">
+                            View Prevention Plan <span
+                                class="material-symbols-outlined text-[14px]">chevron_right</span>
+                        </button>
+                    </div>
+                    <!-- Narrative Card 3 -->
+                    <div
+                        class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm hover:border-primary/30 transition-colors">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="p-2 bg-primary/10 text-primary rounded-lg">
+                                <span class="material-symbols-outlined">verified_user</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white">Liver &amp; Renal Profile</h4>
+                                <p class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Priority:
+                                    Stable</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Hepatic and renal function parameters remain within optimal ranges. GFR and Creatinine
+                            levels do not indicate impairment, suggesting that current blood pressure elevation has not
+                            yet induced nephropathy.
+                        </p>
+                        <button class="mt-4 text-primary text-xs font-bold hover:underline flex items-center gap-1">
+                            Full Lab Details <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+                        </button>
+                    </div>
+                    <!-- CTA Sidebar -->
+                    <div
+                        class="bg-primary rounded-xl p-6 text-white shadow-xl shadow-primary/30 relative overflow-hidden">
+                        <div class="relative z-10">
+                            <h4 class="font-bold text-lg mb-2">Next Steps</h4>
+                            <p class="text-primary-100 text-sm mb-4 opacity-90">Based on these findings, we recommend
+                                scheduling a Cardiology consult within 14 days.</p>
+                            <button
+                                class="w-full bg-white text-primary font-bold py-2.5 rounded-lg text-sm transition-transform active:scale-95">
+                                Schedule Consultation
+                            </button>
+                        </div>
+                        <span
+                            class="material-symbols-outlined absolute -right-4 -bottom-4 text-8xl text-white/10 select-none">stethoscope</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
