@@ -27,7 +27,7 @@ PORT = 8000
 TESSERACT_CMD = r"C:\Program Files\Tesseract-OCR\tesseract.exe" # Windows default
 
 # Gemini AI Settings
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyBJPyoshFpql_B242f_FDxIqnrRT_qfgmQ")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyBZYvETsEV0DF7t81I9DR58NeqwqUEUAh0")
 
 # Create directories if they don't exist
 os.makedirs(UPLOAD_DIR, exist_ok=True)
