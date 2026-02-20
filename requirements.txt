@@ -1,0 +1,16 @@
+fastapi==0.109.2
+uvicorn==0.27.1
+python-multipart==0.0.9
+pydantic==2.6.1
+torch==2.2.0
+transformers==4.37.2
+spacy
+medspacy
+pymupdf==1.23.21
+pytesseract==0.3.10
+pillow==10.2.0
+python-dotenv==1.0.1
+loguru==0.7.2
+scipy==1.12.0
+numpy==1.26.4
+google-generativeai==0.8.2

@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Upload Medical Report - Medical Analysis Portal</title>
+    <title>Upload Medical Report - AIIMS Portal</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
         rel="stylesheet" />
@@ -65,7 +65,7 @@
                         <span class="material-symbols-outlined">health_metrics</span>
                     </div>
                     <div>
-                        <h1 class="text-lg font-bold leading-tight">MedAnalyze</h1>
+                        <h1 class="text-lg font-bold leading-tight">AIIMS Portal</h1>
                         <p class="text-xs text-slate-500 dark:text-slate-400">Authenticated Portal</p>
                     </div>
                 </div>
@@ -153,6 +153,14 @@
                                     class="px-2 py-1 bg-slate-200 dark:bg-slate-700 text-[10px] font-bold rounded uppercase">PNG</span>
                             </div>
                         </div>
+                        <div id="uploadButtonContainer" class="mt-6 hidden">
+                            <button id="startUploadBtn"
+                                class="w-full bg-primary text-white py-3 rounded-lg font-bold shadow-md hover:bg-primary/90 transition-all flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined">analytics</span>
+                                Start AI Analysis
+                            </button>
+                        </div>
+
                         <div class="mt-8">
                             <h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">Tips for better
                                 analysis</h4>
@@ -179,282 +187,221 @@
                             <div id="analysisOutput" class="text-sm space-y-3 text-slate-700 dark:text-slate-300"></div>
                         </div>
                     </div>
-                    <div class="bg-primary/10 rounded-xl p-6 border border-primary/20">
-                        <div class="flex gap-4">
-                            <span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
-                            <div>
-                                <p class="text-primary font-bold text-sm">Privacy Guaranteed</p>
-                                <p class="text-xs text-primary/80 leading-relaxed mt-1">Your medical data is encrypted
-                                    and processed according to HIPAA guidelines. We never share your sensitive
-                                    information.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Right Column: Manual Entry Form -->
-                <div class="xl:col-span-7">
-                    <div
-                        class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
-                        <div
-                            class="p-8 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
-                            <div class="flex items-center gap-3">
-                                <span class="material-symbols-outlined text-primary">edit_note</span>
-                                <h3 class="text-lg font-bold">Manual Lab Results Entry</h3>
-                            </div>
-                            <span class="text-xs font-medium text-slate-400">Step 2 of 2</span>
-                        </div>
-                        <div class="p-8 space-y-8">
-                            <!-- Header Info -->
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div class="space-y-2">
-                                    <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Report
-                                        Date</label>
-                                    <div class="relative">
-                                        <input
-                                            class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white px-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
-                                            type="date" />
-                                    </div>
-                                </div>
-                                <div class="space-y-2">
-                                    <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Laboratory
-                                        Name</label>
-                                    <input
-                                        class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white px-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
-                                        placeholder="e.g. Quest Diagnostics" type="text" />
-                                </div>
-                            </div>
-                            <div class="pt-4">
-                                <div class="flex justify-between items-center mb-4">
-                                    <h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider">Test Results
-                                    </h4>
-                                    <button
-                                        class="flex items-center gap-1 text-xs font-bold text-primary hover:underline">
-                                        <span class="material-symbols-outlined text-sm">add</span> Add Multiple Rows
-                                    </button>
-                                </div>
-                                <!-- Dynamic Test Rows -->
-                                <div class="space-y-4">
-                                    <!-- Row 1 -->
-                                    <div class="grid grid-cols-12 gap-3 items-end">
-                                        <div class="col-span-5 space-y-2">
-                                            <label class="text-[11px] font-bold text-slate-500 uppercase px-1">Test
-                                                Name</label>
-                                            <input
-                                                class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary outline-none"
-                                                placeholder="e.g. Hemoglobin" type="text" />
-                                        </div>
-                                        <div class="col-span-3 space-y-2">
-                                            <label
-                                                class="text-[11px] font-bold text-slate-500 uppercase px-1">Value</label>
-                                            <input
-                                                class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary outline-none text-center font-mono"
-                                                placeholder="14.2" type="text" />
-                                        </div>
-                                        <div class="col-span-3 space-y-2">
-                                            <label
-                                                class="text-[11px] font-bold text-slate-500 uppercase px-1">Unit</label>
-                                            <input
-                                                class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary outline-none"
-                                                placeholder="g/dL" type="text" />
-                                        </div>
-                                        <div class="col-span-1 pb-1 flex justify-center">
-                                            <button
-                                                class="w-8 h-8 rounded-full flex items-center justify-center text-slate-300 hover:text-red-500 hover:bg-red-50 transition-colors">
-                                                <span class="material-symbols-outlined text-lg">delete</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <!-- Row 2 -->
-                                    <div class="grid grid-cols-12 gap-3 items-end">
-                                        <div class="col-span-5 space-y-2">
-                                            <input
-                                                class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary outline-none"
-                                                placeholder="e.g. Glucose" type="text" />
-                                        </div>
-                                        <div class="col-span-3 space-y-2">
-                                            <input
-                                                class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary outline-none text-center font-mono"
-                                                placeholder="95" type="text" />
-                                        </div>
-                                        <div class="col-span-3 space-y-2">
-                                            <input
-                                                class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary outline-none"
-                                                placeholder="mg/dL" type="text" />
-                                        </div>
-                                        <div class="col-span-1 pb-1 flex justify-center">
-                                            <button
-                                                class="w-8 h-8 rounded-full flex items-center justify-center text-slate-300 hover:text-red-500 hover:bg-red-50 transition-colors">
-                                                <span class="material-symbols-outlined text-lg">delete</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <!-- Row 3 -->
-                                    <div class="grid grid-cols-12 gap-3 items-end">
-                                        <div class="col-span-5 space-y-2">
-                                            <input
-                                                class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary outline-none"
-                                                placeholder="e.g. Vitamin D" type="text" />
-                                        </div>
-                                        <div class="col-span-3 space-y-2">
-                                            <input
-                                                class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary outline-none text-center font-mono"
-                                                placeholder="32" type="text" />
-                                        </div>
-                                        <div class="col-span-3 space-y-2">
-                                            <input
-                                                class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary outline-none"
-                                                placeholder="ng/mL" type="text" />
-                                        </div>
-                                        <div class="col-span-1 pb-1 flex justify-center">
-                                            <button
-                                                class="w-8 h-8 rounded-full flex items-center justify-center text-slate-300 hover:text-red-500 hover:bg-red-50 transition-colors">
-                                                <span class="material-symbols-outlined text-lg">delete</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button
-                                    class="mt-6 w-full py-4 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-lg text-slate-400 hover:text-primary hover:border-primary/50 hover:bg-primary/5 transition-all flex items-center justify-center gap-2 group">
-                                    <span
-                                        class="material-symbols-outlined group-hover:scale-110 transition-transform">add_circle</span>
-                                    <span class="text-sm font-bold">Add Another Test Field</span>
-                                </button>
-                            </div>
-                        </div>
-                        <div
-                            class="p-8 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-800 flex justify-end gap-4">
-                            <button
-                                class="px-6 py-3 rounded-lg text-slate-600 dark:text-slate-400 font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                Clear All
-                            </button>
-                            <button
-                                class="bg-primary text-white px-10 py-3 rounded-lg font-bold shadow-lg shadow-primary/30 hover:bg-primary/90 hover:-translate-y-0.5 transition-all flex items-center gap-2">
-                                <span class="material-symbols-outlined">analytics</span>
-                                Analyze Report
-                            </button>
-                        </div>
-                    </div>
                 </div>
             </div>
         </main>
     </div>
     <script>
-        const backendURL = "http://172.18.4.144:8000/analyze";
+        // Direct Gemini API configuration
+        const GEMINI_API_KEY = "AIzaSyBZYvETsEV0DF7t81I9DR58NeqwqUEUAh0";
+        const geminiEndpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${GEMINI_API_KEY}`;
 
-        const dropArea = document.querySelector(".custom-dashed");
-        const fileInput = document.getElementById("fileInput");
-        const resultSection = document.getElementById("resultSection");
-        const analysisOutput = document.getElementById("analysisOutput");
+        document.addEventListener("DOMContentLoaded", () => {
+            console.log("Portal Initialized with Direct Gemini Access");
 
-        /* ---------- CLICK TO UPLOAD ---------- */
-        dropArea.addEventListener("click", () => {
-            fileInput.click();
-        });
+            const dropArea = document.querySelector(".custom-dashed");
+            const fileInput = document.getElementById("fileInput");
+            const resultSection = document.getElementById("resultSection");
+            const analysisOutput = document.getElementById("analysisOutput");
+            const uploadBtnContainer = document.getElementById("uploadButtonContainer");
+            const startUploadBtn = document.getElementById("startUploadBtn");
 
-        /* ---------- DRAG & DROP ---------- */
-        dropArea.addEventListener("dragover", (e) => {
-            e.preventDefault();
-            dropArea.classList.add("bg-primary/20");
-        });
+            // Global error catcher
+            window.onerror = function (msg, url, line) {
+                alert("An error occurred: " + msg + "\nAt: " + line);
+                return false;
+            };
 
-        dropArea.addEventListener("dragleave", () => {
-            dropArea.classList.remove("bg-primary/20");
-        });
+            /* ---------- CLICK TO UPLOAD ---------- */
+            dropArea.onclick = (e) => {
+                if (e.target.tagName !== 'SPAN' || !e.target.innerText.includes('Browse')) {
+                    fileInput.click();
+                }
+            };
 
-        dropArea.addEventListener("drop", (e) => {
-            e.preventDefault();
-            dropArea.classList.remove("bg-primary/20");
-            fileInput.files = e.dataTransfer.files;
-            uploadReport();
-        });
+            const browseBtn = dropArea.querySelector('.underline');
+            if (browseBtn) {
+                browseBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    fileInput.click();
+                };
+            }
 
-        /* ---------- FILE SELECT ---------- */
-        fileInput.addEventListener("change", uploadReport);
+            /* ---------- DRAG & DROP ---------- */
+            dropArea.ondragover = (e) => {
+                e.preventDefault();
+                dropArea.classList.add("bg-primary/20");
+            };
 
-        /* ---------- MAIN FUNCTION ---------- */
-        async function uploadReport() {
+            dropArea.ondragleave = () => {
+                dropArea.classList.remove("bg-primary/20");
+            };
 
-            if (!fileInput.files.length) return;
+            dropArea.ondrop = (e) => {
+                e.preventDefault();
+                dropArea.classList.remove("bg-primary/20");
+                fileInput.files = e.dataTransfer.files;
+                handleFileSelection();
+            };
 
-            const formData = new FormData();
-            formData.append("file", fileInput.files[0]);
+            /* ---------- FILE SELECT ---------- */
+            fileInput.onchange = handleFileSelection;
 
-            resultSection.classList.remove("hidden");
-            analysisOutput.innerHTML =
-                "<p class='text-primary font-semibold animate-pulse'>Analyzing report... Please wait...</p>";
+            function handleFileSelection() {
+                if (fileInput.files.length) {
+                    console.log("File ready:", fileInput.files[0].name);
+                    uploadBtnContainer.classList.remove("hidden");
+                }
+            }
 
-            try {
-                const response = await fetch(backendURL, {
-                    method: "POST",
-                    body: formData
+            /* ---------- START UPLOAD ---------- */
+            startUploadBtn.onclick = uploadReport;
+
+            /* Utility to convert file to Base64 */
+            async function fileToGenerativePart(file) {
+                const base64EncodedDataPromise = new Promise((resolve) => {
+                    const reader = new FileReader();
+                    reader.onloadend = () => resolve(reader.result.split(',')[1]);
+                    reader.readAsDataURL(file);
                 });
+                return {
+                    inlineData: {
+                        data: await base64EncodedDataPromise,
+                        mimeType: file.type
+                    },
+                };
+            }
 
-                const data = await response.json();
+            async function uploadReport() {
+                console.log("Connecting to Gemini...");
 
-                if (!response.ok) {
-                    analysisOutput.innerHTML =
-                        `<p class="text-red-500 font-semibold">Error: ${data.detail}</p>`;
-                    return;
-                }
+                if (!fileInput.files.length) return;
+                const file = fileInput.files[0];
 
-                /* ---------- Risk Color ---------- */
-                let riskColor = "text-green-600";
-                if (data.risk_level === "Moderate") riskColor = "text-yellow-600";
-                if (data.risk_level === "High") riskColor = "text-red-600";
-
-                /* ---------- Parameters ---------- */
-                let parametersHTML = "";
-
-                if (data.parameters && data.parameters.length > 0) {
-                    parametersHTML = "<ul class='list-disc pl-6 space-y-1'>";
-                    data.parameters.forEach(param => {
-                        parametersHTML += `
-                            <li>
-                                <strong>${param.name}</strong> —
-                                ${param.status} (${param.severity})
-                            </li>
-                        `;
-                    });
-                    parametersHTML += "</ul>";
-                } else {
-                    parametersHTML = "<p>No structured medical parameters detected.</p>";
-                }
-
-                /* ---------- Final Display ---------- */
+                resultSection.classList.remove("hidden");
                 analysisOutput.innerHTML = `
-                    <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-100 dark:border-slate-800">
-                        <p class="text-lg font-bold ${riskColor}">
-                            Risk Level: ${data.risk_level}
-                        </p>
-
-                        <h4 class="font-semibold mt-4 text-slate-900 dark:text-white flex items-center gap-1">
-                            <span class="material-symbols-outlined text-sm">list_alt</span>
-                            Detected Parameters:
-                        </h4>
-                        <div class="mt-2">
-                        ${parametersHTML}
-                        </div>
-
-                        <h4 class="font-semibold mt-4 text-slate-900 dark:text-white flex items-center gap-1">
-                            <span class="material-symbols-outlined text-sm">description</span>
-                            AI Explanation:
-                        </h4>
-                        <p class="mt-2 leading-relaxed text-slate-600 dark:text-slate-400">${data.explanation}</p>
-
-                        <hr class="my-4 border-slate-200 dark:border-slate-800">
-
-                        <p class="text-[10px] text-slate-500 italic leading-relaxed">
-                            ${data.disclaimer}
-                        </p>
+                    <div class="flex flex-col items-center py-8">
+                        <div class="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4"></div>
+                        <p class="text-primary font-bold animate-pulse text-center">AI is analyzing your report directly...<br><span class="text-xs font-normal text-slate-500 italic">This usually takes 5-10 seconds</span></p>
                     </div>
                 `;
 
-            } catch (error) {
-                analysisOutput.innerHTML =
-                    "<p class='text-red-500 font-semibold'>Connection error. Ensure backend is running.</p>";
-                console.error(error);
+                try {
+                    const filePart = await fileToGenerativePart(file);
+                    const prompt = `
+                        Summarize the following medical report in simple patient-friendly language. 
+                        Highlight abnormal findings and provide general educational explanation only. 
+                        Do not provide medical prescriptions.
+
+                        Your response must be a valid JSON object with the following fields:
+                        - risk_level: "Low", "Moderate", "High", "Critical", or "Unknown"
+                        - parameters: A clear list of detected medical parameters or "No structured medical parameters detected."
+                        - summary: A detailed summary of the report for the AI Explanation section (MAX 50 WORDS).
+                        - disclaimer: "This tool provides informational assistance only and does not replace professional medical advice."
+
+                        Respond ONLY with the JSON object.
+                    `;
+
+                    const requestPayload = {
+                        contents: [{
+                            parts: [
+                                { text: prompt },
+                                filePart
+                            ]
+                        }]
+                    };
+
+                    const response = await fetch(geminiEndpoint, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(requestPayload)
+                    });
+
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(errorData.error?.message || "Gemini API call failed.");
+                    }
+
+                    const result = await response.json();
+
+                    // Parse JSON from Gemini's text response
+                    let rawText = result.candidates[0].content.parts[0].text.trim();
+                    if (rawText.startsWith("```json")) {
+                        rawText = rawText.substring(7, rawText.length - 3).trim();
+                    } else if (rawText.startsWith("```")) {
+                        rawText = rawText.substring(3, rawText.length - 3).trim();
+                    }
+
+                    const data = JSON.parse(rawText);
+                    renderResults(data);
+
+                } catch (error) {
+                    console.error("Direct Analysis Error:", error);
+                    analysisOutput.innerHTML = `
+                        <div class="p-4 bg-red-50 border border-red-200 rounded-lg">
+                            <p class="text-red-700 font-bold flex items-center gap-2">
+                                <span class="material-symbols-outlined">error</span>
+                                Analysis Failed
+                            </p>
+                            <p class="text-red-600 text-xs mt-2 leading-relaxed">${error.message}</p>
+                        </div>
+                    `;
+                }
             }
-        }
+
+            function renderResults(data) {
+                /* ---------- Risk Color Logic ---------- */
+                let riskColorClass = "text-green-600";
+                if (data.risk_level === "Moderate") riskColorClass = "text-yellow-600";
+                if (data.risk_level === "High" || data.risk_level === "Critical") riskColorClass = "text-red-600";
+                if (data.risk_level === "Unknown") riskColorClass = "text-green-600";
+
+                /* ---------- Final Display (Matches Screenshot Exactly) ---------- */
+                analysisOutput.innerHTML = `
+                    <div class="mb-6 flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary text-3xl">analytics</span>
+                        <h3 class="text-2xl font-black text-slate-800 dark:text-white">Analysis Result</h3>
+                    </div>
+
+                    <div class="p-10 bg-slate-50 dark:bg-slate-800/30 rounded-3xl border border-slate-100 dark:border-slate-800">
+                        <h4 class="text-3xl font-black ${riskColorClass} mb-8">
+                            Risk Level: ${data.risk_level || 'Unknown'}
+                        </h4>
+
+                        <div class="space-y-8">
+                            <div>
+                                <h5 class="font-bold text-slate-900 dark:text-white flex items-center gap-2 text-xl mb-3">
+                                    <span class="material-symbols-outlined text-slate-800 dark:text-slate-200">list_alt</span>
+                                    Detected Parameters:
+                                </h5>
+                                <p class="text-slate-600 dark:text-slate-400 text-xl leading-relaxed">
+                                    ${data.parameters || 'No structured medical parameters detected.'}
+                                </p>
+                            </div>
+
+                            <div>
+                                <h5 class="font-bold text-slate-900 dark:text-white flex items-center gap-2 text-xl mb-3">
+                                    <span class="material-symbols-outlined text-slate-800 dark:text-slate-200">description</span>
+                                    AI Explanation:
+                                </h5>
+                                <p class="text-slate-600 dark:text-slate-400 text-xl leading-relaxed">
+                                    ${data.summary || 'No structured medical parameters detected in the uploaded report.'}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="mt-10 pt-8 border-t border-slate-200 dark:border-slate-700">
+                            <p class="text-base text-slate-500 dark:text-slate-400 italic leading-relaxed">
+                                ${data.disclaimer || 'This tool provides informational assistance only and does not replace professional medical advice.'}
+                            </p>
+                        </div>
+                    </div>
+                `;
+            }
+
+
+
+        });
     </script>
 </body>
 
