@@ -82,17 +82,22 @@
                     <span class="text-sm font-semibold">Upload Report</span>
                 </a>
                 <a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                    href="blood-group.html">
+                    <span class="material-symbols-outlined text-[22px]">bloodtype</span>
+                    <span class="text-sm font-medium">Blood Group Detection</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
                     href="report-history.html">
                     <span class="material-symbols-outlined text-[22px]">history</span>
                     <span class="text-sm font-medium">Report History</span>
                 </a>
                 <a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
-                    href="settings.html">
+                    href="#">
                     <span class="material-symbols-outlined text-[22px]">settings</span>
                     <span class="text-sm font-medium">Settings</span>
                 </a>
                 <a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
-                    href="help.html">
+                    href="#">
                     <span class="material-symbols-outlined text-[22px]">help</span>
                     <span class="text-sm font-medium">Help Center</span>
                 </a>
@@ -107,10 +112,7 @@
                         <p class="text-xs font-semibold truncate">John Doe</p>
                         <p class="text-[10px] text-slate-500 truncate">Premium Member</p>
                     </div>
-                    <a href="index.html"
-                        class="flex items-center justify-center p-1 rounded-full hover:bg-red-50 hover:text-red-500 transition-colors">
-                        <span class="material-symbols-outlined text-sm">logout</span>
-                    </a>
+                    <span class="material-symbols-outlined text-slate-400 text-sm">logout</span>
                 </div>
             </div>
         </aside>
@@ -130,6 +132,8 @@
                             <span class="material-symbols-outlined text-primary">upload_file</span>
                             <h3 class="text-lg font-bold">Document Upload</h3>
                         </div>
+                        <!-- Hidden File Input -->
+                        <input type="file" id="fileInput" accept=".pdf,.jpg,.jpeg,.png" class="hidden">
                         <div
                             class="custom-dashed p-12 flex flex-col items-center justify-center text-center bg-primary/5 hover:bg-primary/[0.08] transition-all cursor-pointer group">
                             <div
@@ -164,6 +168,15 @@
                                     Avoid shadows or glares on the document
                                 </li>
                             </ul>
+                        </div>
+                        <!-- Result Section -->
+                        <div id="resultSection"
+                            class="mt-8 hidden bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800">
+                            <h3 class="text-lg font-bold mb-4 text-primary flex items-center gap-2">
+                                <span class="material-symbols-outlined">analytics</span>
+                                Analysis Result
+                            </h3>
+                            <div id="analysisOutput" class="text-sm space-y-3 text-slate-700 dark:text-slate-300"></div>
                         </div>
                     </div>
                     <div class="bg-primary/10 rounded-xl p-6 border border-primary/20">
@@ -314,17 +327,135 @@
                                 class="px-6 py-3 rounded-lg text-slate-600 dark:text-slate-400 font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
                                 Clear All
                             </button>
-                            <a href="report-detailed.html"
-                                class="bg-primary text-white px-10 py-3 rounded-lg font-bold shadow-lg shadow-primary/30 hover:bg-primary/90 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
+                            <button
+                                class="bg-primary text-white px-10 py-3 rounded-lg font-bold shadow-lg shadow-primary/30 hover:bg-primary/90 hover:-translate-y-0.5 transition-all flex items-center gap-2">
                                 <span class="material-symbols-outlined">analytics</span>
                                 Analyze Report
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </main>
     </div>
+    <script>
+        const backendURL = "http://172.18.4.144:8000/analyze";
+
+        const dropArea = document.querySelector(".custom-dashed");
+        const fileInput = document.getElementById("fileInput");
+        const resultSection = document.getElementById("resultSection");
+        const analysisOutput = document.getElementById("analysisOutput");
+
+        /* ---------- CLICK TO UPLOAD ---------- */
+        dropArea.addEventListener("click", () => {
+            fileInput.click();
+        });
+
+        /* ---------- DRAG & DROP ---------- */
+        dropArea.addEventListener("dragover", (e) => {
+            e.preventDefault();
+            dropArea.classList.add("bg-primary/20");
+        });
+
+        dropArea.addEventListener("dragleave", () => {
+            dropArea.classList.remove("bg-primary/20");
+        });
+
+        dropArea.addEventListener("drop", (e) => {
+            e.preventDefault();
+            dropArea.classList.remove("bg-primary/20");
+            fileInput.files = e.dataTransfer.files;
+            uploadReport();
+        });
+
+        /* ---------- FILE SELECT ---------- */
+        fileInput.addEventListener("change", uploadReport);
+
+        /* ---------- MAIN FUNCTION ---------- */
+        async function uploadReport() {
+
+            if (!fileInput.files.length) return;
+
+            const formData = new FormData();
+            formData.append("file", fileInput.files[0]);
+
+            resultSection.classList.remove("hidden");
+            analysisOutput.innerHTML =
+                "<p class='text-primary font-semibold animate-pulse'>Analyzing report... Please wait...</p>";
+
+            try {
+                const response = await fetch(backendURL, {
+                    method: "POST",
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    analysisOutput.innerHTML =
+                        `<p class="text-red-500 font-semibold">Error: ${data.detail}</p>`;
+                    return;
+                }
+
+                /* ---------- Risk Color ---------- */
+                let riskColor = "text-green-600";
+                if (data.risk_level === "Moderate") riskColor = "text-yellow-600";
+                if (data.risk_level === "High") riskColor = "text-red-600";
+
+                /* ---------- Parameters ---------- */
+                let parametersHTML = "";
+
+                if (data.parameters && data.parameters.length > 0) {
+                    parametersHTML = "<ul class='list-disc pl-6 space-y-1'>";
+                    data.parameters.forEach(param => {
+                        parametersHTML += `
+                            <li>
+                                <strong>${param.name}</strong> —
+                                ${param.status} (${param.severity})
+                            </li>
+                        `;
+                    });
+                    parametersHTML += "</ul>";
+                } else {
+                    parametersHTML = "<p>No structured medical parameters detected.</p>";
+                }
+
+                /* ---------- Final Display ---------- */
+                analysisOutput.innerHTML = `
+                    <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-100 dark:border-slate-800">
+                        <p class="text-lg font-bold ${riskColor}">
+                            Risk Level: ${data.risk_level}
+                        </p>
+
+                        <h4 class="font-semibold mt-4 text-slate-900 dark:text-white flex items-center gap-1">
+                            <span class="material-symbols-outlined text-sm">list_alt</span>
+                            Detected Parameters:
+                        </h4>
+                        <div class="mt-2">
+                        ${parametersHTML}
+                        </div>
+
+                        <h4 class="font-semibold mt-4 text-slate-900 dark:text-white flex items-center gap-1">
+                            <span class="material-symbols-outlined text-sm">description</span>
+                            AI Explanation:
+                        </h4>
+                        <p class="mt-2 leading-relaxed text-slate-600 dark:text-slate-400">${data.explanation}</p>
+
+                        <hr class="my-4 border-slate-200 dark:border-slate-800">
+
+                        <p class="text-[10px] text-slate-500 italic leading-relaxed">
+                            ${data.disclaimer}
+                        </p>
+                    </div>
+                `;
+
+            } catch (error) {
+                analysisOutput.innerHTML =
+                    "<p class='text-red-500 font-semibold'>Connection error. Ensure backend is running.</p>";
+                console.error(error);
+            }
+        }
+    </script>
 </body>
 
 </html>

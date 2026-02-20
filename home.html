@@ -1,17 +1,12 @@
 <!DOCTYPE html>
-
 <html class="light" lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <script>window.location.href = 'login.html';</script>
     <title>AIIMS Report Simplifier | Understand Your Health</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -46,6 +41,8 @@
 
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
         }
     </style>
 </head>
@@ -64,14 +61,17 @@
                             class="text-slate-700 dark:text-slate-300">Simplifier</span></span>
                 </div>
                 <nav class="hidden md:flex items-center gap-8">
-                    <a class="text-sm font-medium hover:text-primary transition-colors" href="index.html">Home</a>
-                    <a class="text-sm font-medium hover:text-primary transition-colors" href="#">About</a>
-                    <a class="text-sm font-medium hover:text-primary transition-colors" href="#">How It Works</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="home.html">Home</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors"
+                        href="dashboard.html">Dashboard</a>
                     <a class="text-sm font-medium hover:text-primary transition-colors" href="blood-group.html">Blood
                         Group Detection</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="chatbot.html">AI
+                        Assistant</a>
                     <a href="login.html"
-                        class="bg-primary flex items-center justify-center text-white px-5 py-2 rounded-lg text-sm font-bold hover:opacity-90 transition-opacity">
-                        Login
+                        class="bg-primary text-white px-5 py-2 rounded-lg text-sm font-bold hover:opacity-90 transition-opacity flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm">logout</span>
+                        Logout
                     </a>
                 </nav>
                 <div class="md:hidden">
@@ -100,7 +100,7 @@
                             actionable insights for patients. No more confusing medical jargon.
                         </p>
                         <div class="flex flex-wrap gap-4">
-                            <a href="login.html"
+                            <a href="upload.html"
                                 class="bg-primary text-white px-8 py-4 rounded-xl text-lg font-bold shadow-lg shadow-primary/25 hover:translate-y-[-2px] transition-all flex items-center gap-2">
                                 <span class="material-symbols-outlined">upload_file</span>
                                 Upload Report
@@ -112,19 +112,16 @@
                         </div>
                         <div class="flex items-center gap-4 text-sm text-slate-500">
                             <div class="flex -space-x-2">
-                                <div class="w-8 h-8 rounded-full border-2 border-white bg-slate-200"
-                                    data-alt="Avatar of user 1"></div>
-                                <div class="w-8 h-8 rounded-full border-2 border-white bg-slate-300"
-                                    data-alt="Avatar of user 2"></div>
-                                <div class="w-8 h-8 rounded-full border-2 border-white bg-slate-400"
-                                    data-alt="Avatar of user 3"></div>
+                                <div class="w-8 h-8 rounded-full border-2 border-white bg-slate-200"></div>
+                                <div class="w-8 h-8 rounded-full border-2 border-white bg-slate-300"></div>
+                                <div class="w-8 h-8 rounded-full border-2 border-white bg-slate-400"></div>
                             </div>
                             <span>Joined by 10,000+ patients across India</span>
                         </div>
                     </div>
                     <div class="relative">
-                        <div class="aspect-video w-full rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/10 p-4 shadow-2xl relative z-10 overflow-hidden"
-                            data-alt="AI Medical Report Dashboard Interface Mockup">
+                        <div
+                            class="aspect-video w-full rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/10 p-4 shadow-2xl relative z-10 overflow-hidden">
                             <div class="absolute inset-0 flex items-center justify-center">
                                 <span class="material-symbols-outlined text-8xl text-primary/30">analytics</span>
                             </div>
@@ -343,10 +340,10 @@
         <section class="py-12 bg-primary">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-3xl font-bold text-white mb-6">Take control of your health understanding today</h2>
-                <button
-                    class="bg-white text-primary px-10 py-4 rounded-xl text-xl font-bold hover:bg-slate-50 transition-colors shadow-xl">
+                <a href="upload.html"
+                    class="inline-block bg-white text-primary px-10 py-4 rounded-xl text-xl font-bold hover:bg-slate-50 transition-colors shadow-xl">
                     Get Started for Free
-                </button>
+                </a>
             </div>
         </section>
     </main>
@@ -387,9 +384,9 @@
                     <h5 class="font-bold text-sm uppercase tracking-widest text-slate-900 dark:text-white mb-6">
                         Resources</h5>
                     <ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
-                        <li><a class="hover:text-primary" href="help.html">Documentation</a></li>
-                        <li><a class="hover:text-primary" href="help.html#disclaimer">Privacy Policy</a></li>
-                        <li><a class="hover:text-primary" href="help.html#support">Support</a></li>
+                        <li><a class="hover:text-primary" href="#">Documentation</a></li>
+                        <li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
+                        <li><a class="hover:text-primary" href="#">Support</a></li>
                     </ul>
                 </div>
                 <div>
@@ -415,15 +412,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Floating Chatbot Icon -->
-    <div class="fixed bottom-6 right-6 z-[60]">
-        <a href="chatbot.html"
-            class="w-[60px] h-[60px] bg-primary text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 hover:bg-[#152b66] group"
-            title="Chat with AI Medical Assistant">
-            <span class="material-symbols-outlined text-3xl group-hover:rotate-12 transition-transform">chat</span>
-        </a>
-    </div>
 </body>
 
 </html>

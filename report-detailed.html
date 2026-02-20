@@ -20,8 +20,8 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#3b1e8a",
-                        "background-light": "#f6f6f8",
+                        "primary": "#1E3A8A",
+                        "background-light": "#F8FAFC",
                         "background-dark": "#161220",
                     },
                     fontFamily: {
@@ -37,6 +37,13 @@
             },
         }
     </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    </style>
 </head>
 
 <body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
@@ -58,9 +65,19 @@
                         <span class="font-medium text-sm">Dashboard</span>
                     </a>
                     <a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                        href="upload.html">
+                        <span class="material-symbols-outlined text-lg">cloud_upload</span>
+                        <span class="font-medium text-sm">Upload Report</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                        href="blood-group.html">
+                        <span class="material-symbols-outlined text-lg">bloodtype</span>
+                        <span class="font-medium text-sm">Blood Group Detection</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
                         href="report-history.html">
-                        <span class="material-symbols-outlined text-lg">group</span>
-                        <span class="font-medium text-sm">Patient List</span>
+                        <span class="material-symbols-outlined text-lg">history</span>
+                        <span class="font-medium text-sm">Report History</span>
                     </a>
                     <a class="flex items-center gap-3 px-3 py-2 bg-primary/10 text-primary rounded-lg"
                         href="report-detailed.html">

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Blood Group Detection | AIIMS System</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1E3A8A",
+                        "accent-green": "#10B981",
+                        "background-light": "#F8FAFC",
+                        "card-bg": "#FFFFFF",
+                        "text-primary": "#1F2937",
+                        "text-secondary": "#6B7280",
+                        "border-color": "#E5E7EB"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light text-text-primary font-display min-h-screen flex">
+    <!-- Fixed Left Sidebar -->
+    <aside
+        class="fixed inset-y-0 left-0 w-[260px] bg-white text-slate-900 flex flex-col border-r border-slate-200 z-50">
+        <div class="p-6 flex items-center gap-3">
+            <div class="bg-primary/10 p-2 rounded-lg">
+                <span class="material-symbols-outlined text-primary text-3xl">medical_services</span>
+            </div>
+            <div>
+                <h1 class="text-sm font-bold leading-tight uppercase tracking-tight text-slate-900">AIIMS Medical</h1>
+                <p class="text-[10px] text-slate-500 uppercase tracking-widest">Simplification System</p>
+            </div>
+        </div>
+        <nav class="flex-1 mt-6 px-3 space-y-1">
+            <a class="flex items-center gap-4 px-4 py-3 text-slate-600 hover:bg-slate-50 rounded-lg transition-colors group"
+                href="home.html">
+                <span
+                    class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">home</span>
+                <span class="text-sm font-medium">Home</span>
+            </a>
+            <a class="flex items-center gap-4 px-4 py-3 text-slate-600 hover:bg-slate-50 rounded-lg transition-colors group"
+                href="dashboard.html">
+                <span
+                    class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">dashboard</span>
+                <span class="text-sm font-medium">Dashboard</span>
+            </a>
+            <a class="flex items-center gap-4 px-4 py-3 text-slate-600 hover:bg-slate-50 rounded-lg transition-colors group"
+                href="upload.html">
+                <span
+                    class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">cloud_upload</span>
+                <span class="text-sm font-medium">Upload Report</span>
+            </a>
+            <a class="flex items-center gap-4 px-4 py-3 bg-primary/5 rounded-lg text-primary border-r-4 border-primary"
+                href="blood-group.html">
+                <span class="material-symbols-outlined">bloodtype</span>
+                <span class="text-sm font-bold">Blood Group Detection</span>
+            </a>
+            <a class="flex items-center gap-4 px-4 py-3 text-slate-600 hover:bg-slate-50 rounded-lg transition-colors group"
+                href="report-history.html">
+                <span
+                    class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">history</span>
+                <span class="text-sm font-medium">Report History</span>
+            </a>
+            <a class="flex items-center gap-4 px-4 py-3 text-slate-600 hover:bg-slate-50 rounded-lg transition-colors group"
+                href="chatbot.html">
+                <span
+                    class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">smart_toy</span>
+                <span class="text-sm font-medium">AI Assistant</span>
+            </a>
+        </nav>
+        <div class="p-6 border-t border-slate-100">
+            <div class="flex items-center gap-3">
+                <div
+                    class="size-9 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">
+                    JD</div>
+                <div class="overflow-hidden">
+                    <p class="text-xs font-semibold truncate text-slate-900">Dr. John Doe</p>
+                    <a href="login.html"
+                        class="text-[10px] text-slate-400 hover:text-primary transition-colors">Logout</a>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="ml-[260px] flex-1 p-8">
+        <!-- Header -->
+        <header class="mb-10 max-w-5xl mx-auto">
+            <h2 class="text-3xl font-black text-slate-900 tracking-tight">Blood Group Detection System</h2>
+            <p class="text-text-secondary mt-1 text-lg">Determine and understand blood group classification based on
+                antigens.</p>
+        </header>
+
+        <!-- SECTION 1: Information Card -->
+        <section class="mb-12 max-w-5xl mx-auto">
+            <div class="bg-card-bg rounded-2xl shadow-sm border border-border-color p-8 flex items-start gap-6">
+                <div class="size-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                    <span class="material-symbols-outlined text-3xl">info</span>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Understanding Blood Groups</h3>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div>
+                            <h4 class="font-bold text-primary text-sm uppercase tracking-wider mb-2">What is it?</h4>
+                            <p class="text-sm text-text-secondary leading-relaxed">Blood groups are determined by the
+                                presence or absence of specific antigens on the surface of red blood cells.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-primary text-sm uppercase tracking-wider mb-2">ABO System</h4>
+                            <p class="text-sm text-text-secondary leading-relaxed">The main system classifies blood into
+                                A, B, AB, or O depending on the presence of A and B antigens.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-primary text-sm uppercase tracking-wider mb-2">Rh Factor</h4>
+                            <p class="text-sm text-text-secondary leading-relaxed">The Rh (Rhesus) factor determines if
+                                your blood type is positive (+) or negative (-) depending on the D antigen.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Blood Group Detection Form -->
+        <section class="mb-16 max-w-2xl mx-auto">
+            <div class="bg-card-bg rounded-2xl shadow-xl border border-border-color p-10">
+                <div class="text-center mb-8">
+                    <div
+                        class="inline-flex items-center justify-center size-16 rounded-full bg-primary/5 text-primary mb-4">
+                        <span class="material-symbols-outlined text-4xl">biometry</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900">Antigen Analysis</h3>
+                    <p class="text-text-secondary mt-1">Select antigen reactions to detect the blood group.</p>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="space-y-2">
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest"
+                                for="antigen-a">Antigen A</label>
+                            <select id="antigen-a"
+                                class="w-full bg-slate-50 border border-border-color rounded-xl px-4 py-3 text-sm font-semibold focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all">
+                                <option value="negative">Negative</option>
+                                <option value="positive">Positive</option>
+                            </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest"
+                                for="antigen-b">Antigen B</label>
+                            <select id="antigen-b"
+                                class="w-full bg-slate-50 border border-border-color rounded-xl px-4 py-3 text-sm font-semibold focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all">
+                                <option value="negative">Negative</option>
+                                <option value="positive">Positive</option>
+                            </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest"
+                                for="antigen-rh">Rh Factor</label>
+                            <select id="antigen-rh"
+                                class="w-full bg-slate-50 border border-border-color rounded-xl px-4 py-3 text-sm font-semibold focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all">
+                                <option value="negative">Negative</option>
+                                <option value="positive">Positive</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button onclick="detectBloodGroup()"
+                        class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 transition-all transform active:scale-[0.98] flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined">medical_information</span>
+                        Detect Blood Group
+                    </button>
+
+                    <!-- Result Card (Hidden by default) -->
+                    <div id="result-card" class="hidden animate-in fade-in slide-in-from-top-4 duration-500">
+                        <div class="mt-8 p-6 bg-accent-green/5 border-2 border-accent-green/20 rounded-2xl text-center">
+                            <p class="text-accent-green font-bold text-xs uppercase tracking-[0.2em] mb-2">Detection
+                                Result</p>
+                            <h4 id="detected-group" class="text-6xl font-black text-slate-900 mb-3">O+</h4>
+                            <p id="group-explanation"
+                                class="text-sm text-text-secondary max-w-sm mx-auto leading-relaxed">Your blood contains
+                                neither A nor B antigens, but has the Rh factor.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Educational Section -->
+        <section class="max-w-5xl mx-auto mb-16">
+            <div class="flex items-center gap-4 mb-8">
+                <h3 class="text-xl font-bold text-slate-900 shrink-0">Clinical Compatibility Grid</h3>
+                <div class="h-px w-full bg-border-color"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Group Cards -->
+                <div
+                    class="bg-white p-6 rounded-2xl border border-border-color shadow-sm hover:shadow-md transition-all">
+                    <h5 class="text-2xl font-black text-primary mb-2">A+</h5>
+                    <p class="text-xs text-text-secondary leading-relaxed">One of the most common groups. Can donate to
+                        A+ and AB+ recipients.</p>
+                </div>
+                <div
+                    class="bg-white p-6 rounded-2xl border border-border-color shadow-sm hover:shadow-md transition-all">
+                    <h5 class="text-2xl font-black text-primary mb-2">A-</h5>
+                    <p class="text-xs text-text-secondary leading-relaxed">Can donate to A+, A-, AB+ and AB-. Rare and
+                        highly needed for donation.</p>
+                </div>
+                <div
+                    class="bg-white p-6 rounded-2xl border border-border-color shadow-sm hover:shadow-md transition-all">
+                    <h5 class="text-2xl font-black text-primary mb-2">B+</h5>
+                    <p class="text-xs text-text-secondary leading-relaxed">Can be given to B+ and AB+ patients. About 9%
+                        of the population has this.</p>
+                </div>
+                <div
+                    class="bg-white p-6 rounded-2xl border border-border-color shadow-sm hover:shadow-md transition-all">
+                    <h5 class="text-2xl font-black text-primary mb-2">B-</h5>
+                    <p class="text-xs text-text-secondary leading-relaxed">Rare type. Can donate to B+, B-, AB+ and AB-
+                        recipients.</p>
+                </div>
+                <div
+                    class="bg-white p-6 rounded-2xl border border-border-color shadow-sm hover:shadow-md transition-all">
+                    <h5 class="text-2xl font-black text-primary mb-2">AB+</h5>
+                    <p class="text-xs text-text-secondary leading-relaxed">Universal recipient. Can receive red blood
+                        cells from any blood type.</p>
+                </div>
+                <div
+                    class="bg-white p-6 rounded-2xl border border-border-color shadow-sm hover:shadow-md transition-all">
+                    <h5 class="text-2xl font-black text-primary mb-2">AB-</h5>
+                    <p class="text-xs text-text-secondary leading-relaxed">Universal plasma donor. The rarest blood type
+                        in many populations.</p>
+                </div>
+                <div
+                    class="bg-white p-6 rounded-2xl border border-border-color shadow-sm hover:shadow-md transition-all">
+                    <h5 class="text-2xl font-black text-primary mb-2">O+</h5>
+                    <p class="text-xs text-text-secondary leading-relaxed">The most common blood type. Can be given to
+                        any positive blood group.</p>
+                </div>
+                <div
+                    class="bg-white p-6 rounded-2xl border border-border-color shadow-sm hover:shadow-md transition-all border-accent-green/30 bg-accent-green/[0.02]">
+                    <h5 class="text-2xl font-black text-accent-green mb-2">O-</h5>
+                    <p class="text-xs text-text-secondary leading-relaxed">Universal donor. Critical for emergency
+                        transfusions when type is unknown.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="max-w-5xl mx-auto py-10 border-t border-border-color text-center">
+            <p class="text-[11px] text-text-secondary uppercase tracking-[0.2em] font-medium">© 2024 AIIMS Clinical
+                Intelligence Module</p>
+        </footer>
+    </main>
+
+    <script>
+        function detectBloodGroup() {
+            const a = document.getElementById('antigen-a').value === 'positive';
+            const b = document.getElementById('antigen-b').value === 'positive';
+            const rh = document.getElementById('antigen-rh').value === 'positive';
+
+            let group = "";
+            let explanation = "";
+
+            if (!a && !b) {
+                group = "O";
+                explanation = "Your blood contains neither A nor B antigens.";
+            } else if (a && b) {
+                group = "AB";
+                explanation = "Your blood contains both A and B antigens.";
+            } else if (a) {
+                group = "A";
+                explanation = "Your blood contains A antigens.";
+            } else {
+                group = "B";
+                explanation = "Your blood contains B antigens.";
+            }
+
+            group += (rh ? "+" : "-");
+            explanation += rh ? " It also contains the Rh (D) factor." : " It does not contain the Rh factor.";
+
+            document.getElementById('detected-group').innerText = group;
+            document.getElementById('group-explanation').innerText = explanation;
+            document.getElementById('result-card').classList.remove('hidden');
+
+            window.scrollTo({
+                top: document.getElementById('result-card').offsetTop - 100,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+
+</html>

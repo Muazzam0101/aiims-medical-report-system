@@ -26,8 +26,8 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#3b1e8a",
-                        "background-light": "#f6f6f8",
+                        "primary": "#1E3A8A",
+                        "background-light": "#F8FAFC",
                         "background-dark": "#161220",
                     },
                     fontFamily: {
@@ -100,7 +100,7 @@
                         <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm">Access your patient records &amp;
                             medical services</p>
                     </div>
-                    <form class="space-y-6">
+                    <form class="space-y-6" onsubmit="event.preventDefault(); window.location.href='home.html';">
                         <!-- Email / Patient ID Field -->
                         <div class="space-y-2">
                             <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300"
@@ -140,11 +140,11 @@
                             </div>
                         </div>
                         <!-- Login Button -->
-                        <a href="dashboard.html"
+                        <button type="submit"
                             class="w-full py-4 bg-primary hover:bg-primary/90 text-white font-bold rounded-lg shadow-lg shadow-primary/20 transition-all transform active:scale-[0.98] flex items-center justify-center gap-2">
                             <span class="material-symbols-outlined text-lg">login</span>
                             Secure Login
-                        </a>
+                        </button>
                     </form>
                     <!-- Divider -->
                     <div class="relative my-8">
