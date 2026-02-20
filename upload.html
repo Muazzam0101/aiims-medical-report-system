@@ -193,7 +193,7 @@
     </div>
     <script>
         // Direct Gemini API configuration
-        const GEMINI_API_KEY = "AIzaSyBZYvETsEV0DF7t81I9DR58NeqwqUEUAh0";
+        const GEMINI_API_KEY = "AIzaSyBJPyoshFpql_B242f_FDxIqnrRT_qfgmQ";
         const geminiEndpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${GEMINI_API_KEY}`;
 
         document.addEventListener("DOMContentLoaded", () => {
@@ -297,6 +297,7 @@
                         - risk_level: "Low", "Moderate", "High", "Critical", or "Unknown"
                         - parameters: A clear list of detected medical parameters or "No structured medical parameters detected."
                         - summary: A detailed summary of the report for the AI Explanation section (MAX 50 WORDS).
+                        - guidance: Suggested next-step consultation guidance (e.g., "Consult a Cardiologist", "Repeat test in 6 months", etc.)
                         - disclaimer: "This tool provides informational assistance only and does not replace professional medical advice."
 
                         Respond ONLY with the JSON object.
@@ -385,7 +386,17 @@
                                     AI Explanation:
                                 </h5>
                                 <p class="text-slate-600 dark:text-slate-400 text-xl leading-relaxed">
-                                    ${data.summary || 'No structured medical parameters detected in the uploaded report.'}
+                                    ${data.summary || 'No detailed analysis available.'}
+                                </p>
+                            </div>
+
+                            <div>
+                                <h5 class="font-bold text-slate-900 dark:text-white flex items-center gap-2 text-xl mb-3">
+                                    <span class="material-symbols-outlined text-slate-800 dark:text-slate-200">medical_services</span>
+                                    Consultation Guidance:
+                                </h5>
+                                <p class="text-slate-600 dark:text-slate-400 text-xl leading-relaxed">
+                                    ${data.guidance || 'Consult with your primary care physician for next steps.'}
                                 </p>
                             </div>
                         </div>
